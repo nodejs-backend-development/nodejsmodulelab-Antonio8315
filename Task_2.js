@@ -6,11 +6,12 @@ const port = 8000;
 
 const server = http.createServer((req, res) => {
     const queryObject = url.parse(req.url, true).query;
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
     
     if (queryObject.name) {
+        res.writeHead(200);
         res.end(`Hello ${queryObject.name}`);
     } else {
+        res.writeHead(400);
         res.end('You should provide name parameter');
     }
 });
