@@ -12,7 +12,6 @@ const csvFilePath = path.join(__dirname, 'data.csv');
 
 const server = http.createServer((req, res) => {
     if (req.method === 'GET') {
-        res.end('You should provide name parameter');
         const readStream = fs.createReadStream(csvFilePath);
         let headers;
         const jsonObjects = [];
